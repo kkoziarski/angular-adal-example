@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { RestrictedComponent } from './restricted/restricted.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 import { LoggedInGuard } from './_auth/logged-in.guard';
 
@@ -18,8 +19,17 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
     path: 'restricted',
-    component: RestrictedComponent
+    component: RestrictedComponent,
+    canActivate: [ LoggedInGuard ]
+  },
+  {
+    path: 'unauthorized',
+    component: UnauthorizedComponent
   }
 ];
 

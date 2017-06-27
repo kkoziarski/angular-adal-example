@@ -10,7 +10,7 @@ export class RestrictedComponent implements OnInit {
     public message: string;
 
     constructor() {
-        this.message = 'Hello from RestrictedComponent ctor';
+        this.message = 'Hello from RestrictedComponent';
     }
 
     ngOnInit(): void {

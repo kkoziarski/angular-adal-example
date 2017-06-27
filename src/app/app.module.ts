@@ -9,6 +9,7 @@ import { LoggedInGuard } from './_auth/logged-in.guard';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RestrictedComponent } from './restricted/restricted.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    RestrictedComponent
+    RestrictedComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
