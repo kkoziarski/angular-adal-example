@@ -4,12 +4,13 @@ import { NgModule } from '@angular/core';
 import { AdalService } from 'ng2-adal/core';
 import { SecretService } from './_services/secret.service';
 
-import { LoggedInGuard } from './_auth/logged-in.guard';
+import { AuthenticationGuard } from './_auth/authentication.guard';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RestrictedComponent } from './restricted/restricted.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     HomeComponent,
     RestrictedComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [
     AdalService,
     SecretService,
-    LoggedInGuard
+    AuthenticationGuard
   ],
   bootstrap: [AppComponent]
 })

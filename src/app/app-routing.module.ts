@@ -4,8 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RestrictedComponent } from './restricted/restricted.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 
-import { LoggedInGuard } from './_auth/logged-in.guard';
+import { AuthenticationGuard } from './_auth/authentication.guard';
 
 const appRoutes: Routes = [
 //   {
@@ -25,11 +26,15 @@ const appRoutes: Routes = [
   {
     path: 'restricted',
     component: RestrictedComponent,
-    canActivate: [ LoggedInGuard ]
+    canActivate: [ AuthenticationGuard ]
   },
   {
     path: 'unauthorized',
     component: UnauthorizedComponent
+  },
+  {
+    path: 'auth-callback',
+    component: AuthCallbackComponent
   }
 ];
 

@@ -3,7 +3,7 @@ import { Router, CanActivate } from '@angular/router';
 import { AdalService } from 'ng2-adal/core';
 
 @Injectable()
-export class LoggedInGuard implements CanActivate {
+export class AuthenticationGuard implements CanActivate {
   constructor(private adalService: AdalService, private router: Router) { }
 
   canActivate() {

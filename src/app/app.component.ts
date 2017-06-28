@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SecretService } from './_services/secret.service';
-// import { AdalService } from 'ng2-adal/services/adal.service';
 import { AdalService } from 'ng2-adal/core';
 
 @Component({
@@ -21,7 +20,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.adalService.handleWindowCallback();
-    this.adalService.getUser();
+    // this.adalService.handleWindowCallback();
+    // this.adalService.getUser();
+    // if (this.adalService.userInfo.isAuthenticated) {
+    //     this.router.navigate(['home']);
+    // }
   }
 }
