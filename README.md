@@ -36,7 +36,7 @@ Set `http://localhost:4200/auth-callback`
 ## How to get __tenant__
 <img src="https://raw.githubusercontent.com/krzyhook/angular-adal-example/master/img/azure-ad-tenantID.png"></img>
 
-## How to get __clientId__
+## How to get __client_id__
 `Your AD app -> All settings -> Application ID`
 
 ## Enable Implicit Flow
