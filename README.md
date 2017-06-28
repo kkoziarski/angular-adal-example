@@ -1,6 +1,6 @@
 # Angular Azure AD example
 
-Copy of [ng2-adal-QuickStart](https://github.com/ranveeraggarwal/ng2-adal-QuickStart) implemented with angular-cli. Adal library used: [ng2-adal](https://github.com/sureshchahal/angular2-adal)
+Based on [MS ADAL with Angular2](https://blogs.msdn.microsoft.com/premier_developer/2017/04/26/using-adal-with-angular2/) implemented with angular-cli. Adal library used: [ADAL.JS](https://blogs.msdn.microsoft.com/premier_developer/2017/04/26/using-adal-with-angular2/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
