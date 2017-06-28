@@ -31,10 +31,10 @@ ng serve -o
 
 Set `http://localhost:4200/auth-callback`
 
-<img src="https://raw.githubusercontent.com/krzyhook/angular-adal-example/master/img/azure-ad-replay-urls.png"></img>
+![Scheme](img/azure-ad-replay-urls.png)
 
 ## How to get __tenant__
-<img src="https://raw.githubusercontent.com/krzyhook/angular-adal-example/master/img/azure-ad-tenantID.png"></img>
+![Scheme](img/azure-ad-tenantID.png)
 
 ## How to get __client_id__
 `Your AD app -> All settings -> Application ID`
@@ -44,4 +44,4 @@ Set `http://localhost:4200/auth-callback`
 
 Set `oauth2AllowImplicitFlow` to `true`
 ## Manifest
-<img src="https://raw.githubusercontent.com/krzyhook/angular-adal-example/master/img/azure-ad-manifest.png"></img>
+![Scheme](img/azure-ad-manifest.png)
