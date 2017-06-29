@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from './_services/adal.service';
 import { SecretService } from './_services/secret.service';
 
 import { AuthenticationGuard } from './_auth/authentication.guard';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from '../_services/adal.service';
 
 @Component({
     selector: 'app-unauthorized',
@@ -16,9 +16,11 @@ export class UnauthorizedComponent implements OnInit {
 
     ngOnInit(): void {
     }
+
     public logIn() {
         this.adalService.login();
     }
+
     public logOut() {
         this.adalService.logOut();
     }

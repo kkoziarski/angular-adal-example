@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from '../_services/adal.service';
 
 @Component({
     selector: 'app-home',
@@ -12,6 +12,11 @@ export class HomeComponent implements OnInit {
 
     constructor(private adalService: AdalService) {
         this.message = 'Hello from HomeComponent';
+
+        console.log('User info from JWT');
+        console.log(this.adalService.userInfo);
+        console.log('JWT Token');
+        console.log(this.adalService.accessToken);
     }
 
     ngOnInit(): void {
