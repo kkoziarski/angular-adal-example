@@ -1,0 +1,1 @@
+SET ASPNETCORE_URLS=http://*:44008 && dotnet run

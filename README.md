@@ -1,4 +1,4 @@
-# Angular Azure AD example
+# Frontend: Angular Azure AD example
 
 Copy of [ng2-adal-QuickStart](https://github.com/ranveeraggarwal/ng2-adal-QuickStart) implemented with `angular-cli`. Adal library used: [ng2-adal](https://github.com/sureshchahal/angular2-adal)
 
