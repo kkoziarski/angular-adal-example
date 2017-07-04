@@ -19,6 +19,7 @@ namespace WebApiValues
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
+            //Envrionment variable ASPNETCORE_ENVIRONMENT=Development must be defined
             if (env.IsDevelopment())
             {
                 // dotnet user-secrets -h
@@ -55,8 +56,7 @@ namespace WebApiValues
                     .AllowAnyHeader()
                     .AllowAnyMethod()
             );
-
-
+            
             string audience = this.Configuration["MicrosoftIdentity:ClientId"];
             if (audience == "YOUR CLIENT ID")
             {
