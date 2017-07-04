@@ -1,7 +1,36 @@
-<div class="row">
-    <div class="col-md-12">
-        <br/>
-        <br/>
-        <h2>{{message}}</h2>
+<div class="panel panel-default" style="background-color: orange">
+    <div class="panel-body">
+        <div>
+            This is a protected page
+        </div>
+        <!--<div>
+            To go back click <a (click)="goback()">here</a>.
+        </div>-->
     </div>
 </div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <button (click)="getUser()" id='getUser' class="btn btn-primary">get user</button>
+        <!--<button (click)="clearCache()" id='clearCache' class="btn btn-primary">clear cache</button>-->
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <label class="radio-inline"><input type="radio" name="apiType" value="secrets" [(ngModel)]="apiType">Secret</label>
+        <label class="radio-inline"><input type="radio" name="apiType" value="claims" [(ngModel)]="apiType">Claims</label>
+        <label class="radio-inline"><input type="radio" name="apiType" value="values" [(ngModel)]="apiType">Values</label>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <button (click)="callApi()" id='getUser' class="btn btn-success">call {{apiType}} API</button>
+        <button (click)="acquireToken()" id='getUser' class="btn btn-warning">aquire token</button>
+    </div>
+</div>
+<div *ngIf="_user" class="panel panel-default">
+  <pre>{{_user | json}}</pre>
+</div>
+<div *ngIf="_apiValues" class="panel panel-default">
+  <pre>{{_apiValues | json}}</pre>
+</div>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { AdalService } from 'ng2-adal/core';
 
 @Component({
@@ -10,7 +11,7 @@ export class UnauthorizedComponent implements OnInit {
 
     public message: string;
 
-    constructor(private adalService: AdalService) {
+    constructor(private adalService: AdalService, private location: Location) {
         this.message = 'Hello from UnauthorizedComponent';
     }
 
@@ -19,7 +20,7 @@ export class UnauthorizedComponent implements OnInit {
     public logIn() {
         this.adalService.login();
     }
-    public logOut() {
-        this.adalService.logOut();
+    goback() {
+        this.location.back();
     }
 }

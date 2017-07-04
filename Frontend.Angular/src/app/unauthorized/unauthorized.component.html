@@ -1,16 +1,14 @@
-<div class="row">
-    <div class="col-md-12">
-        <br/>
-        <br/>
+<div class="panel panel-default" style="background-color: red">
+    <div class="panel-body">
         <h2>{{message}}</h2>
+        <div>
+          Unauthorized Request to login click <a (click)="logIn()" href="#">here</a>.
+        </div>
         You are not logged in, so you were redirected here. Please log in.
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <br/>
-        <br/>
-        <button (click)="logIn()">Login</button>
-        <button (click)="logOut()">Logout</button>
+<div class="panel panel-default">
+    <div class="panel-body">
+        To go back click <a (click)="goback()" href="#">here</a>
     </div>
 </div>
