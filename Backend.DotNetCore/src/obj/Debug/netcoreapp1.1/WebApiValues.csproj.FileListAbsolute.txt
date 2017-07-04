@@ -1,9 +1,0 @@
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\bin\Debug\netcoreapp1.1\WebApiValues.deps.json
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\bin\Debug\netcoreapp1.1\WebApiValues.runtimeconfig.json
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\bin\Debug\netcoreapp1.1\WebApiValues.runtimeconfig.dev.json
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\bin\Debug\netcoreapp1.1\WebApiValues.dll
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\bin\Debug\netcoreapp1.1\WebApiValues.pdb
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\obj\Debug\netcoreapp1.1\WebApiValues.AssemblyInfo.cs
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\obj\Debug\netcoreapp1.1\WebApiValues.dll
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\obj\Debug\netcoreapp1.1\WebApiValues.pdb
-D:\_DEV\OAuth\angular-adal-example\Backend.DotNetCore\src\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
