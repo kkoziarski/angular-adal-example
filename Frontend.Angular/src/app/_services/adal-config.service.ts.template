@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class SecretService {
+export class AdalConfigService {
   public get adalConfig(): any {
     return {
       tenant: 'xxxxxx.onmicrosoft.com', // Enpoints -> OAuth 2.0 Authorization Endpoint: https://login.windows.net/{tenant}/oauth2

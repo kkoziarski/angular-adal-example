@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SecretService } from '../_services/secret.service';
+import { AdalConfigService } from '../_services/adal-config.service';
 import { AdalService } from 'ng2-adal/core';
 
 @Component({
@@ -15,10 +15,10 @@ export class AuthCallbackComponent implements OnInit {
 
   constructor(
     private adalService: AdalService,
-    private secretService: SecretService,
+    private adalConfigService: AdalConfigService,
     private router: Router
   ) {
-    this.adalService.init(this.secretService.adalConfig);
+    this.adalService.init(this.adalConfigService.adalConfig);
   }
 
   ngOnInit(): void {

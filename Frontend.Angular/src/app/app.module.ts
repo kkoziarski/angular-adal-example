@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AdalService } from 'ng2-adal/core';
-import { SecretService } from './_services/secret.service';
+import { AdalConfigService } from './_services/adal-config.service';
 
 import { AuthenticationGuard } from './_auth/authentication.guard';
 
@@ -28,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   providers: [
     AdalService,
-    SecretService,
+    AdalConfigService,
     AuthenticationGuard
   ],
   bootstrap: [AppComponent]
