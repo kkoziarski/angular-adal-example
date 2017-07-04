@@ -8,7 +8,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 # Development
-Go to `.\src\app\_services\` and replace `secret.service.ts.template` with `secret.service.ts` and your actual values.
+
+## Frontend
+
+### Setup
+Go to `.\src\app\_services\` and replace `adal-config.service.ts.template` with `adal-config.service.ts` and your actual values.
 
 Run
 ```
@@ -16,12 +20,35 @@ npm install
 ng serve -o
 ````
 
-## Routes
+### Routes
 * `/home` - main page with Login/Logout buttons
 * `/restricted` - a protected with `AuthenticationGuard.canActivate`
 * `/unauthorized` - user will be redirected here when tries to access `/restricted` route but is not logged-in. Use _Login_ button first on `/home` page.
 * `/auth-callback` - here Azure AD will redirect after successful login/logout process. It must be configured in Azure portal in _Reply URLs_ section and in `secret.service.ts` as `redirectUri` and `postLogoutRedirectUri`.
 
+
+## Backend - Backend.DotNetCore
+
+### Setup
+
+Set [environment variable](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments) on your local machine `ASPNETCORE_ENVIRONMENT=Development`
+
+Update `appsettings.json` and set 
+```
+"MicrosoftIdentity": {
+    "Authority": "https://login.microsoftonline.com/{tenantId}",
+    "ClientId": "YOUR CLIENT ID"
+}
+```
+or alternatively set it in `user-secrets` [(Secret Manager) for the project](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets#secret-manage) 
+
+Run
+```
+dotnet restore
+.\run-server.cmd
+````
+
+The `run-server.cmd` is used to run the app on __:44008__ port.
 
 # Azure portal setup
 [Azure Portal](https://portal.azure.com)
