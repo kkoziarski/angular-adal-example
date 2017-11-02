@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AdalConfigService } from '../_services/adal-config.service';
 import { AuthService } from '../_services/auth.service';
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from 'ng2-adal/dist/core';
 
 @Component({
     selector: 'app-auth-callback',

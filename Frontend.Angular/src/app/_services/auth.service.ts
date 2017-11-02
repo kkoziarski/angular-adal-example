@@ -1,8 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+// import { of } from 'rxjs/observable/of';
+import 'rxjs/add/observable/of';
 
-import { AdalService, OAuthData, AuthHttp } from 'ng2-adal/core';
+import { AdalService, OAuthData } from 'ng2-adal/dist/core';
 import * as adalLib from 'adal-angular';
 import User = adal.User;
 import { AdalConfigService } from './adal-config.service';
@@ -16,13 +18,12 @@ export class AuthService {
   currentUser: User;
   loggedIn = false;
 
-  private authHeaders: Headers;
+  private authHeaders: HttpHeaders;
   private tokenResource: string;
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private adalConfigService: AdalConfigService,
-    private authHttp: AuthHttp,
     private adalService: AdalService) {
       this.tokenResource = this.adalConfigService.adalConfig.clientId;
   }
@@ -41,7 +42,7 @@ export class AuthService {
         this.userLoadededEvent.emit(user);
       },
       error => {
-        //console.log(error)
+        // console.log(error)
         console.log('getUser error');
       },
       () => console.log('getUser complete'));
@@ -57,7 +58,7 @@ export class AuthService {
           return false;
         }
       })
-      .catch((err) => { return Observable.of(false); })
+      .catch((err) => Observable.of(false))
   }
 
   public acquireToken(): Observable<string> {
@@ -65,26 +66,26 @@ export class AuthService {
       return this.adalService.acquireToken(this.tokenResource);
   }
 
-  callSecretApi(): Observable<Response> {
+  callSecretApi(): Observable<HttpResponse<Object>> {
     const url = `${environment.apiServerUrl}/api/secrets`;
     return this.callApi(url);
   }
 
-  callClaimsApi(): Observable<Response> {
+  callClaimsApi(): Observable<HttpResponse<Object>> {
     const url = `${environment.apiServerUrl}/api/secrets`;
     return this.callApi(url);
   }
 
-  callValuesApi(): Observable<Response> {
+  callValuesApi(): Observable<HttpResponse<Object>> {
     const url = `${environment.apiServerUrl}/api/secrets`;
     return this.callApi(url);
   }
 
-  callApi(url: string): Observable<Response> {
-    //const access_token = this.adalService.getCachedToken(this.tokenResource);
+  callApi(url: string): Observable<HttpResponse<Object>> {
+    // const access_token = this.adalService.getCachedToken(this.tokenResource);
     return this.adalService
       .acquireToken(this.tokenResource)
-      .flatMap<string, Response>((token) => {
+      .flatMap<string, HttpResponse<Object>>((token) => {
 
         this._setAuthHeaders(token);
         return this.AuthGet(url);
@@ -93,72 +94,73 @@ export class AuthService {
 
   /**
    * Example of how you can make auth request using angulars http methods.
-   * @param options if options are not supplied the default content type is application/json
+   * @param headers if options are not supplied the default content type is application/json
    */
-  AuthGet(url: string, options?: RequestOptions): Observable<Response> {
+  AuthGet(url: string, headers?: HttpHeaders): Observable<HttpResponse<Object>> {
 
-    if (options) {
-      options = this._setRequestOptions(options);
+    if (headers) {
+      headers = this._setRequestOptions(headers);
     } else {
-      options = this._setRequestOptions();
+      headers = this._setRequestOptions();
     }
-    return this.http.get(url, options);
+    return this.http.get<HttpResponse<Object>>(url, { headers: headers });
+    // return this.http.get(url, { headers: headers });
   }
   /**
-   * @param options if options are not supplied the default content type is application/json
+   * @param headers if options are not supplied the default content type is application/json
    */
-  AuthPut(url: string, data: any, options?: RequestOptions): Observable<Response> {
+  AuthPut(url: string, data: any, headers?: HttpHeaders): Observable<HttpResponse<Object>> {
 
     const body = JSON.stringify(data);
 
-    if (options) {
-      options = this._setRequestOptions(options);
+    if (headers) {
+      headers = this._setRequestOptions(headers);
     } else {
-      options = this._setRequestOptions();
+      headers = this._setRequestOptions();
     }
-    return this.http.put(url, body, options);
+    return this.http.put<HttpResponse<Object>>(url, body, { headers: headers });
   }
   /**
-   * @param options if options are not supplied the default content type is application/json
+   * @param headers if options are not supplied the default content type is application/json
    */
-  AuthDelete(url: string, options?: RequestOptions): Observable<Response> {
+  AuthDelete(url: string, headers?: HttpHeaders): Observable<HttpResponse<Object>> {
 
-    if (options) {
-      options = this._setRequestOptions(options);
+    if (headers) {
+      headers = this._setRequestOptions(headers);
     } else {
-      options = this._setRequestOptions();
+      headers = this._setRequestOptions();
     }
-    return this.http.delete(url, options);
+    return this.http.delete<HttpResponse<Object>>(url, { headers: headers });
   }
   /**
-   * @param options if options are not supplied the default content type is application/json
+   * @param headers if options are not supplied the default content type is application/json
    */
-  AuthPost(url: string, data: any, options?: RequestOptions): Observable<Response> {
+  AuthPost(url: string, data: any, headers?: HttpHeaders): Observable<HttpResponse<Object>> {
 
     const body = JSON.stringify(data);
 
-    if (options) {
-      options = this._setRequestOptions(options);
+    if (headers) {
+      headers = this._setRequestOptions(headers);
     } else {
-      options = this._setRequestOptions();
+      headers = this._setRequestOptions();
     }
-    return this.http.post(url, body, options);
+    return this.http.post<HttpResponse<Object>>(url, body, { headers: headers });
   }
 
   private _setAuthHeaders(access_token, token_type = 'Bearer') {
     access_token = access_token || this.adalService.getCachedToken(this.adalConfigService.adalConfig.clientId);
-    this.authHeaders = new Headers();
-    this.authHeaders.append('Authorization', token_type + ' ' + access_token);
-    this.authHeaders.append('Content-Type', 'application/json');
+    this.authHeaders = new HttpHeaders();
+    this.authHeaders = this.authHeaders.set('Authorization', token_type + ' ' + access_token);
+    this.authHeaders = this.authHeaders.set('Content-Type', 'application/json');
   }
-  public _setRequestOptions(options?: RequestOptions) {
+  public _setRequestOptions(headers?: HttpHeaders)  {
 
-    if (options) {
-      options.headers.append(this.authHeaders.keys[0], this.authHeaders.values[0]);
+    if (headers) {
+      headers.set('Authorization', this.authHeaders.get('Authorization'));
     } else {
-      options = new RequestOptions({ headers: this.authHeaders, body: '' });
+      return this.authHeaders;
     }
 
-    return options;
+    return headers;
   }
 }
