@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { AuthService } from '../_services/auth.service';
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from 'ng2-adal/dist/core';
 
 import { environment } from '../../environments/environment';
 
@@ -22,7 +22,7 @@ export class RestrictedComponent implements OnInit {
         private location: Location,
         private authService: AuthService,
         private adalService: AdalService) {
-        
+
         this.apiType = 'secrets';
         this.message = 'Hello from RestrictedComponent';
     }
@@ -57,7 +57,7 @@ export class RestrictedComponent implements OnInit {
         this.authService.acquireToken()
             .subscribe(p => {
                 console.log("Acquired token = " + p);
-                //then you could set Authorization Bearer header and call microsft graph api 
+                //then you could set Authorization Bearer header and call microsft graph api
             },
             (error => {
                 console.log(error);

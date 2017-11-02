@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from '../environments/environment';
 
 import { AdalConfigService } from './_services/adal-config.service';
-import { AdalService } from 'ng2-adal/core';
+import { AdalService } from 'ng2-adal/dist/core';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     private router: Router
   ) {
     this.adalService.init(this.adalConfigService.adalConfig);
-    this.adalService.handleWindowCallback();  
+    this.adalService.handleWindowCallback();
   }
 
   ngOnInit(): void {

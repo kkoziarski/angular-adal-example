@@ -5,7 +5,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AdalService, OAuthData, AuthHttp } from 'ng2-adal/core';
+import { AdalService, OAuthData } from 'ng2-adal/dist/core';
 import { AdalConfigService } from './_services/adal-config.service';
 import { AuthService } from './_services/auth.service';
 import { AuthenticationGuard } from './_auth/authentication.guard';
@@ -37,8 +37,7 @@ import { AppRoutingModule } from './app-routing.module';
     AuthService,
     AdalConfigService,
     AuthenticationGuard,
-    AdalService,
-    AuthHttp
+    AdalService
   ],
   bootstrap: [AppComponent]
 })

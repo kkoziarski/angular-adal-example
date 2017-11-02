@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
-import { AdalService, OAuthData, AuthHttp } from 'ng2-adal/core';
+import { AdalService, OAuthData } from 'ng2-adal/dist/core';
 import * as adalLib from 'adal-angular';
 import User = adal.User;
 import { AdalConfigService } from './adal-config.service';
@@ -22,7 +22,6 @@ export class AuthService {
   constructor(
     private http: Http,
     private adalConfigService: AdalConfigService,
-    private authHttp: AuthHttp,
     private adalService: AdalService) {
       this.tokenResource = this.adalConfigService.adalConfig.clientId;
   }
