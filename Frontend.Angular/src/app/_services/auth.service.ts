@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Rx'
 // import { of } from 'rxjs/observable/of';
 import 'rxjs/add/observable/of';
 
@@ -8,7 +9,6 @@ import { AdalService, OAuthData } from 'ng2-adal/dist/core';
 import * as adalLib from 'adal-angular';
 import User = adal.User;
 import { AdalConfigService } from './adal-config.service';
-
 
 import { environment } from '../../environments/environment';
 
